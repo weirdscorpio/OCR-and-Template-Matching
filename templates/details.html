@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block content %}
+<div class="nav">
+  <div class="center">
+    <a href="/user/signout" class="btn btn--secondary">Sign Out</a>
+  </div>
+</div>
+
+<div class="doc-wrapper">
+  <div style="margin: 20px; font-size: 22px;"><b>Your Documents</b></div>
+  <div>
+    <ul>
+      <div class="card-wrapper card-wrapper2">
+        {% for item in data %} {% if item.Type == "Aadhar" %}
+
+        <div class="card card1 card2">
+          <div class="items">Aadhar ID : {{ item.Aadhar }}</div>
+          <div class="items">Date of Birth : {{ item.DOB }}</div>
+          <div class="items">Gender : {{ item.Gender }}</div>
+          <div class="items">Name : {{ item.Name }}</div>
+        </div>
+
+        {% else %} {% if item.Type == "PAN" %}
+        <div class="card card1 card2">
+          <div class="items">PAN ID : {{ item.PANID }}</div>
+          <div class="items">Date of Birth : {{ item.DOB }}</div>
+          <div class="items">Father's Name : {{ item.FatherName }}</div>
+          <div class="items">Name : {{ item.Name }}</div>
+        </div>
+
+        {% else %}
+        <div class="card card1 card2">
+          <div class="items">Passport Number : {{ item.PassportNumber }}</div>
+          {% if item.DOB %}
+          <div class="items">Date of Birth : {{ item.DOB }}</div>
+          {% endif %} {% if item.IssueDate %}
+          <div class="items">Issue Date : {{ item.IssueDate }}</div>
+          {% endif %} {% if item.ExpiryDate %}
+          <div class="items">Expiry Date : {{ item.ExpiryDate }}</div>
+          {% endif %}
+          <div class="items">Name : {{ item.Name }}</div>
+          {% if item.Nationality %}
+          <div class="items">Nationality : {{ item.Nationality }}</div>
+          {% endif %} {% if item.Gender %}
+          <div class="items">Gender : {{ item.Gender }}</div>
+          {% endif %}
+        </div>
+
+        {% endif %} {% endif %} {% endfor %}
+      </div>
+    </ul>
+  </div>
+  {% endblock %}
+</div>

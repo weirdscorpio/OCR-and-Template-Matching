@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+<div class="nav">
+  <div class="center">
+    <a href="/user/signout" class="btn btn--secondary">Sign Out</a>
+  </div>
+</div>
+
+<div class="card-wrapper">
+  <div class="card">
+    <h2 class="center">Upload New Image</h2>
+    <form action="/imageUpload" class="newForm" enctype="multipart/form-data" method="POST">
+      <label for="file-upload" class="custom-file-upload">
+        Custom Upload. Click Here!
+        <span>
+          <div class = loader>
+            <input id="file-upload" name="file" type="file" />
+            <input class="btn btn--secondary" type="Submit" />
+          </div>
+        </span>
+      </label>
+    </form>
+  </div>
+</div>
+<br><br><br>
+<div class="nav1">
+  <div class="center">
+    <a href="/details" class="btn btn--secondary">View Documents</a>
+  </div>
+</div>
+
+
+{% endblock %}
